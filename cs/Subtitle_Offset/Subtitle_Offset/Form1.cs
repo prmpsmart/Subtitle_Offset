@@ -20,6 +20,9 @@ namespace Subtitle_Offset
         public Form1()
         {
             InitializeComponent();
+            
+            // seconds.Value = 37;
+            // outputDir.Text = "C:\\Users\\Administrator\\Videos\\K-Drama\\Our Beloved Summer\\Subtitles\\offset_37s";
         }
 
         private void add_subtitles_Click(object sender, EventArgs e)
@@ -90,19 +93,16 @@ namespace Subtitle_Offset
                     this.output = output;
                     var selected_subtitles = subtitles.SelectedItems;
 
-                    if (selected_subtitles.Count > 0)
+                    if ((selected_subtitles.Count > 0) && (MessageBox.Show("Work on the selected subtitles?", "Selected Subtitles", MessageBoxButtons.YesNo) == DialogResult.Yes))
                     {
-                        // ask quesion whether to use selected or not
-                        if (MessageBox.Show("Work on the selected subtitles?", "Selected Subtitles", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        {
-                            foreach (ListViewItem item in selected_subtitles) subtitle_files.Add(item.Name);
-                            add_offset.Enabled = false;
-                            progressBar1.Maximum = subtitle_files.Count;
+                        foreach (ListViewItem item in selected_subtitles) subtitle_files.Add(item.Name);
+                        add_offset.Enabled = false;
 
-                            Task.Run(() => action());
-                        }
                     }
                     else subtitle_files = files;
+
+                    progressBar1.Maximum = subtitle_files.Count;
+                    Task.Run(() => action());
                 }
                 else MessageBox.Show("Set the output folder", "Output Folder", MessageBoxButtons.OK);
             }
@@ -115,18 +115,15 @@ namespace Subtitle_Offset
             {
                 string file = subtitle_files[i];
                 string basename = Path.GetFileName(file);
-                string name = Path.GetFileNameWithoutExtension(Path.Combine(output, basename));
-                string ext = Path.GetExtension(file);
+                string name = Path.Combine(output, Path.GetFileNameWithoutExtension(basename)) + "-offset_" + offset + "-seconds" + Path.GetExtension(file);
 
                 subtitle.read(file);
                 subtitle.add_offset(offset);
-                //subtitle.write(name + "-offset_" + offset + "-seconds" + ext);
-                //progressBar1.Value = i + 1;
+                subtitle.write(name);
 
                 Invoke(new MethodInvoker(delegate
                 {
                     progressBar1.Value = i + 1;
-                    result.Text = name;
                 }));
             }
 

@@ -144,6 +144,8 @@ class Subtitle_Offset(QWidget):
                     )
                     if answer == QMessageBox.StandardButton.Yes:
                         subtitles = [sub.text() for sub in selected_subtitles]
+                    else:
+                        subtitles = self.files
                 else:
                     subtitles = self.files
 
@@ -163,7 +165,7 @@ class Subtitle_Offset(QWidget):
     def action(self, subtitles, output, offset):
         for index, sub in enumerate(subtitles):
             basename = path.basename(sub)
-            name, ext = path.splitext(path.join(output, basename))
+            name, ext = path.join(output, path.splitext(basename))
             
             self.subtitle.read(sub)
             self.subtitle.add_offset(offset)

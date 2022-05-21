@@ -130,8 +130,6 @@
             // 
             this.subtitles.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.subtitles.Alignment = System.Windows.Forms.ListViewAlignment.Left;
-            this.subtitles.HotTracking = true;
-            this.subtitles.HoverSelection = true;
             this.subtitles.Location = new System.Drawing.Point(13, 40);
             this.subtitles.Name = "subtitles";
             this.subtitles.ShowGroups = false;
