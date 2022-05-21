@@ -1,0 +1,9 @@
+C:\Users\Administrator\Coding_Projects\Python\Dev_Workspace\Subtitle_Offset\cs\Subtitle_Offset\Subtitle_Offset\bin\Debug\Subtitle_Offset.exe.config
+C:\Users\Administrator\Coding_Projects\Python\Dev_Workspace\Subtitle_Offset\cs\Subtitle_Offset\Subtitle_Offset\bin\Debug\Subtitle_Offset.exe
+C:\Users\Administrator\Coding_Projects\Python\Dev_Workspace\Subtitle_Offset\cs\Subtitle_Offset\Subtitle_Offset\bin\Debug\Subtitle_Offset.pdb
+C:\Users\Administrator\Coding_Projects\Python\Dev_Workspace\Subtitle_Offset\cs\Subtitle_Offset\Subtitle_Offset\obj\Debug\Subtitle_Offset.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Coding_Projects\Python\Dev_Workspace\Subtitle_Offset\cs\Subtitle_Offset\Subtitle_Offset\obj\Debug\Subtitle_Offset.Form1.resources
+C:\Users\Administrator\Coding_Projects\Python\Dev_Workspace\Subtitle_Offset\cs\Subtitle_Offset\Subtitle_Offset\obj\Debug\Subtitle_Offset.Properties.Resources.resources
+C:\Users\Administrator\Coding_Projects\Python\Dev_Workspace\Subtitle_Offset\cs\Subtitle_Offset\Subtitle_Offset\obj\Debug\Subtitle_Offset.csproj.GenerateResource.Cache
+C:\Users\Administrator\Coding_Projects\Python\Dev_Workspace\Subtitle_Offset\cs\Subtitle_Offset\Subtitle_Offset\obj\Debug\Subtitle_Offset.exe
+C:\Users\Administrator\Coding_Projects\Python\Dev_Workspace\Subtitle_Offset\cs\Subtitle_Offset\Subtitle_Offset\obj\Debug\Subtitle_Offset.pdb
