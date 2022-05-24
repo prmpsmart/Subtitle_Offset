@@ -74,11 +74,6 @@ namespace Subtitle_Offset
     {
         List<Index> indices = new List<Index>();
 
-        public Subtitle(string file = "")
-        {
-            if (file.Length > 0) read(file);
-        }
-
         public void read(string file)
         {
             indices.Clear();

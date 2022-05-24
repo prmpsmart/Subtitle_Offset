@@ -37,11 +37,7 @@ class Index:
 
 
 class Subtitle:
-    def __init__(self, file="") -> None:
-        self.indices: List[Index] = []
-        if file:
-            self.read(file)
-
+    
     def read(self, file):
         self.indices = []
         file_obj = open(file)
