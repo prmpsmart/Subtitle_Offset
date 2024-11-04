@@ -50,7 +50,10 @@ class Subtitle_Offset(QWidget):
 
         hlay.addSpacerItem(
             QSpacerItem(
-                100, 0, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum
+                100,
+                0,
+                QSizePolicy.Policy.Expanding,
+                QSizePolicy.Policy.Minimum,
             )
         )
 
@@ -79,12 +82,13 @@ class Subtitle_Offset(QWidget):
         layout.addLayout(hlay3)
 
         self.output = QLineEdit(
-            r"C:/Users/Administrator/Videos/K-Drama/Our Beloved Summer/Subtitles/offset_37s"
+            # r"C:/Users/Administrator/Videos/K-Drama/Our Beloved Summer/Subtitles/offset_37s"
         )
         self.output.setPlaceholderText("Output Folder")
 
         self.output.addAction(
-            QIcon("../res/folder.png"), QLineEdit.ActionPosition.TrailingPosition
+            QIcon("../res/folder.png"),
+            QLineEdit.ActionPosition.TrailingPosition,
         ).triggered.connect(self.browse_folder)
 
         hlay3.addWidget(self.output)
@@ -101,7 +105,8 @@ class Subtitle_Offset(QWidget):
         files = QFileDialog.getOpenFileNames(
             self,
             "Subtitles",
-            r"C:\Users\Administrator\Videos\K-Drama\Our Beloved Summer\Subtitles",
+            # r"C:\Users\Administrator\Videos\K-Drama\Our Beloved Summer\Subtitles",
+            '',
             "Subtitle files (*.srt *.txt)",
         )[0]
 
@@ -131,7 +136,8 @@ class Subtitle_Offset(QWidget):
     def add_offset(self):
         offset = self._time.secsTo(self.time.time())
         if offset:
-            if self.negative.isChecked(): offset *= -1
+            if self.negative.isChecked():
+                offset *= -1
             output = self.output.text()
             if output:
                 selected_subtitles = self.subtitles.selectedItems()
@@ -166,7 +172,7 @@ class Subtitle_Offset(QWidget):
         for index, sub in enumerate(subtitles):
             basename = path.basename(sub)
             name, ext = path.join(output, path.splitext(basename))
-            
+
             self.subtitle.read(sub)
             self.subtitle.add_offset(offset)
             self.subtitle.write(f"{name}-offset_{offset}-seconds{ext}")
@@ -190,4 +196,3 @@ class Subtitle_Offset_App(QApplication):
 
 
 Subtitle_Offset_App()
-

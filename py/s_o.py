@@ -1,4 +1,3 @@
-from typing import List
 from datetime import datetime, timedelta
 
 TIME_FORMAT = "%H:%M:%S,%f"
@@ -37,9 +36,16 @@ class Index:
 
 
 class Subtitle:
-    
+
+    def __init__(self, file: str = "") -> None:
+        self.indices: list[Index] = []
+
+        if file:
+            self.read(file)
+
     def read(self, file):
-        self.indices = []
+        self.indices.clear()
+
         file_obj = open(file)
         text = file_obj.read()
         lines = text.split(NEW_LINE) + [NEW_LINE]
@@ -68,10 +74,7 @@ class Subtitle:
         file_obj.close()
 
 
-def add_offset(file, offset, out):
+def add_offset(file: str, offset: int, out: str):
     subtitle = Subtitle(file)
     subtitle.add_offset(offset)
     subtitle.write(out)
-
-
-# add_offset("../res/sample.srt", 10, "../res/result.srt")
